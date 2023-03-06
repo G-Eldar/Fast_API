@@ -5,17 +5,19 @@ def add_2(*args):
     print("-"*100)
 
 
-def add_3(a=0, b=0, c=0):
+def add_3(a: int = 0, b: int = 0, c: int = 0) -> None:
     print(a + 1)
     print(b + 2)
     print(c + 3)
 
 
-def add_4(n, p, **kwargs):
+def add_4(n, p, **kwargs) -> str:
     print(n + 4)
     print(p + 4)
     for i, j in kwargs.items():
         print(i, j + 4)
+    return "Finish"
+
 
 
 add_2(1, 2, 3)  #  positional arguments
@@ -41,3 +43,11 @@ print("="*100)
 t = (15, 13, 12)
 add_3(*t)  # 10, 11, 12
 
+
+# import os
+# import shutil
+#
+#
+# os.mkdir("new_folder")  # make directory - create empty folder
+# shutil.move(A, B)  # move element from folder A to folder B
+# shutil.copy(A, B)  # copy element from folder A to folder B

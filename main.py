@@ -1,14 +1,19 @@
-import json  # builtin modules
-
-from fastapi import FastAPI, Path, Query, Body  # external modules, i.o. which used pip install
-from fastapi.responses import HTMLResponse, JSONResponse, FileResponse, RedirectResponse
-import uvicorn
-
-from models import UserRequest, UserResponse, Family  # custom modules, our self python files
+from fastapi import FastAPI
 from api.product.views import router_product
 from api.users.views import router_user
+from api.employee.views import router_employee
 
+import uvicorn
 
 app = FastAPI()
 app.include_router(router_product)
 app.include_router(router_user)
+app.include_router(router_employee)
+
+
+@app.get("/")
+def root():
+    return {"message": "Hello FAST_API"}
+
+# uvicorn.run(app)
+
